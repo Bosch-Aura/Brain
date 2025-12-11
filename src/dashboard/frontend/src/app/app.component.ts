@@ -53,7 +53,7 @@ export class AppComponent implements OnDestroy {
   // >>> md5_hash = hashlib.md5(input.encode()).hexdigest()
   // >>> print(md5_hash)
   // example for "123" -> 202cb962ac59075b964b07152d234b70
-  correctPassword = ''; // md5 hash of the password
+  correctPassword = '81e444cec58d85af833e11eb775d0bd5';
 
   enteredPassword = ''; // User input password
   isAuthenticated = false; // Controls whether the content is displayed or not
@@ -149,7 +149,7 @@ export class AppComponent implements OnDestroy {
 
   submitPassword() {
     if (this.correctPassword === '' && this.enteredPassword === this.correctPassword) {
-      this.showAlert = true;
+      this.showAlert = false;
       this.webSocketService.sendMessageToFlask(`{"Name": "SessionAccess"}`);
       return;
     }
@@ -191,7 +191,7 @@ export class AppComponent implements OnDestroy {
 
     this.alertInterval = setInterval(() => {
       this.showAlert = true;
-    }, 900000);
+    }, 300000);
   }
 
   openSettings() {
